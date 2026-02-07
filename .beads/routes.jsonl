@@ -1,3 +1,6 @@
+{"prefix":"wheel-tracker","path":"wheel-tracker/.beads"}
+{"prefix":"hq-","path":"."}
+{"prefix":"hq-cv-","path":"."}
+{"prefix":"wt-","path":"wheel-tracker/mayor/rig"}
 {"prefix":"ma-","path":"meal-agent/mayor/rig"}
 {"prefix":"ps-","path":"personal-site/mayor/rig"}
-{"prefix":"wt-","path":"wheel-tracker/mayor/rig"}
