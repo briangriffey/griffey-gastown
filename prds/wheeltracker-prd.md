@@ -1,18 +1,47 @@
 
+# Wheel Tracker - Product Requirements Document
+
+## Product Overview
+
+**Wheel Tracker** is a web application for tracking options trades using the "wheel strategy" - a systematic approach to selling put and call options to generate income. The app helps traders track their trades, monitor positions, calculate profit/loss, and compare performance against market benchmarks.
+
+### Core Features
+- **Trade Management**: Track PUT and CALL options with entry/exit dates, strikes, and premiums
+- **Position Tracking**: Monitor stock positions acquired through PUT assignments
+- **P&L Calculations**: Real-time profit/loss tracking for trades and positions
+- **Market Data Integration**: Automatic stock price updates during market hours
+- **Benchmark Comparison**: Compare wheel strategy performance vs SPY/QQQ/VTI
+- **Tax Reporting**: Export trade history for tax purposes
+
+### Target Users
+Individual options traders using the wheel strategy who want to track their trades and analyze performance.
+
+---
+
 ## Implementation Request
 
-Create parallelized work for implementing the Wheel Tracker application following the PRD at `wheeltracker/docs/PRODUCT_PLAN.md`.
+Create parallelized work for implementing the Wheel Tracker application as described above.
 
 **Constraints:**
 - Maximum 2 polecats working simultaneously
 - Assign all work to: `wheeltracker` rig
-- Create convoy: "Wheel Tracker v1.0"
+- Create convoy with descriptive name (will receive auto-generated hq-* ID)
 - Use web development formulas where applicable
 
 **Strategy:**
 - Structure work in sequential phases (dependencies between phases)
 - Within each phase, create parallel tracks when possible (2 polecats max)
 - Each phase blocks on previous phase completion
+
+**Bead Format:**
+- Each bead below is presented in a structured format with:
+  - **Title**: One-line summary
+  - **Description**: Detailed overview
+  - **Tasks**: Checklist of work to complete
+  - **Dependencies**: What must complete first
+  - **Acceptance Criteria**: Definition of done
+  - **Tags**: Labels for categorization
+- To actually create these beads, use the `bd create` command (see Summary section)
 
 ---
 
@@ -32,7 +61,7 @@ Description:
 Set up the foundational Next.js project with TypeScript and all tooling.
 
 Tasks:
-- [ ] Create Next.js 14+ project with App Router
+- [ ] Create Next.js 15+ project with App Router
 - [ ] Configure TypeScript (strict mode)
 - [ ] Set up pnpm workspace if needed
 - [ ] Configure Tailwind CSS
@@ -1332,11 +1361,47 @@ Tags: [phase7, deployment, production, launch]
 **Timeline:** ~16 weeks
 **Constraint:** Maximum 2 polecats working simultaneously
 
+### How to Use This PRD
+
+1. **Create Beads**: Use `bd create` to create each bead from the definitions above:
+   ```bash
+   # From wheeltracker directory
+   cd wheeltracker
+   bd create "Initialize Wheel Tracker Next.js Project" \
+     --description "$(cat <<EOF
+   Set up the foundational Next.js project with TypeScript and all tooling.
+
+   Tasks:
+   - Create Next.js 15+ project with App Router
+   - Configure TypeScript (strict mode)
+   ...
+   EOF
+   )" \
+     --tags foundation,setup,infrastructure
+   ```
+
+2. **Set Dependencies**: After creating all beads, set up dependency chains:
+   ```bash
+   bd dep add <bead-2-id> --blocks-on <bead-1-id>
+   bd dep add <bead-3-id> --blocks-on <bead-2-id>
+   # etc.
+   ```
+
+3. **Create Convoy**: Track all beads in a convoy:
+   ```bash
+   gt convoy create "Wheel Tracker v1.0" <bead-1-id> <bead-2-id> ... <bead-25-id>
+   ```
+
+4. **Assign Work**: Sling beads to polecats respecting dependencies and parallelization:
+   ```bash
+   gt sling <bead-id> wheeltracker
+   ```
+
 ### Convoy Structure
 
-Create convoy: **"Wheel Tracker v1.0"**
+Create convoy: **"Wheel Tracker v1.0"** (will receive auto-generated hq-* ID)
 
-Include all 25 beads in convoy.
+Include all 25 beads in convoy when they are created.
 
 ### Dependency Chain
 
@@ -1392,7 +1457,7 @@ Throughout this implementation:
 **For Mayor to Mark Complete:**
 - [ ] All 25 beads created
 - [ ] Dependencies set correctly between phases
-- [ ] Convoy "Wheel Tracker v1.0" created with all beads
+- [ ] Convoy "wheeltracker-1" created with all beads
 - [ ] Work assigned respecting 2-polecat constraint
 - [ ] Application deployed to production
 - [ ] All tests passing
