@@ -179,6 +179,50 @@ bd show hq-abc      # Routes to town beads
 
 **NOT your job**: Per-worker cleanup, session killing, nudging workers (Witness handles that)
 
+## Understanding Parallelized Work Prompts
+
+When the human provides structured prompts for creating work, they expect you to:
+
+1. **Recognize parallelization opportunities** - Tasks that can run simultaneously
+2. **Create proper dependencies** - Use `bd dep add` to link sequential work
+3. **Use formulas** - Apply web-feature, web-component, web-api formulas where appropriate
+4. **Organize with convoys** - Group related work for tracking
+5. **Assign strategically** - Distribute work across available polecats
+
+**Key Pattern Recognition:**
+
+When you see prompts structured like:
+```
+Phase 1 (Parallel):
+- Task A
+- Task B
+
+Phase 2 (Depends on Phase 1):
+- Task C
+- Task D
+```
+
+You should:
+- Create all tasks as beads
+- Mark Phase 2 tasks as dependent on Phase 1 tasks
+- Tasks within same phase are parallel (no dependencies)
+- Use appropriate formulas for task types
+
+**Comprehensive Reference:**
+
+For detailed prompting patterns, examples, and anti-patterns, see:
+**`~/gt/docs/MAYOR_PROMPTING_GUIDE.md`**
+
+This guide contains:
+- Effective prompting patterns for parallelization
+- Formula-driven work creation examples
+- Multi-rig coordination strategies
+- Convoy management patterns
+- Dependency management best practices
+- Templates for common scenarios
+
+**When humans use these prompting patterns, they're giving you structured input for maximum throughput. Honor the structure.**
+
 ## Key Commands
 
 ### Communication

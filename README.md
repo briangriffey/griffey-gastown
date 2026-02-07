@@ -348,6 +348,71 @@ This creates an issue with a comprehensive checklist covering:
 bd formula list
 ```
 
+## Working with the Mayor
+
+The Mayor is your primary coordinator for parallelized work across Gas Town. The Mayor can create and coordinate complex, multi-rig workflows with proper dependency management.
+
+### Prompting for Parallelized Work
+
+To get the best results from the Mayor, use structured prompts that clearly define:
+- What work items to create
+- Which items can run in parallel
+- What dependencies exist between items
+- Which rigs/workers to assign to
+
+**Example of a good prompt:**
+```markdown
+Create parallelized work for implementing user authentication:
+
+**Phase 1 (Parallel):**
+- Add user schema to database
+- Create auth middleware
+- Set up JWT library
+
+**Phase 2 (Depends on Phase 1, Parallel):**
+- Build login API endpoint (web-api formula: endpoint_name="login")
+- Build register API endpoint (web-api formula: endpoint_name="register")
+- Create auth context provider
+
+**Phase 3 (Depends on Phase 2, Parallel):**
+- Build login page UI
+- Build register page UI
+- Add protected route wrapper
+
+Use web-component formula for UI components.
+Create convoy: "User Authentication"
+Assign to: meal-agent rig
+```
+
+### Key Mayor Capabilities
+
+**Convoy Management:**
+- `gt convoy create "name" <bead-ids>` - Group related work
+- `gt convoy list` - View all active convoys
+- `gt convoy status <id>` - Check convoy progress
+
+**Work Distribution:**
+- `gt sling <bead-id> <rig>` - Assign work to polecat
+- Create multiple beads and assign in parallel for maximum throughput
+
+**Dependency Management:**
+- `bd dep add <needs-this> <blocking-bead>` - Define dependencies
+- `bd blocked <id>` - Check what's blocking a bead
+- `bd ready` - List beads ready to work (no blockers)
+
+### Comprehensive Guide
+
+For detailed patterns, examples, and best practices, see:
+**[Mayor Prompting Guide](docs/MAYOR_PROMPTING_GUIDE.md)**
+
+This guide covers:
+- Effective prompting patterns for parallelization
+- Formula-driven work creation
+- Multi-rig coordination
+- Phase-based execution
+- Anti-patterns to avoid
+- Templates for common scenarios
+
 ## Common Commands
 
 ### Town (HQ) Level
