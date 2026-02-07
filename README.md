@@ -150,6 +150,162 @@ packages/
 
 See [`templates/WEB_APP_TEMPLATE.md`](./templates/WEB_APP_TEMPLATE.md) for detailed setup instructions.
 
+## Web Development Specialized Polecats
+
+Gas Town polecats can be specialized for web development work using our web app context templates. This gives autonomous workers deep knowledge of React, Next.js, TypeScript, and modern web development patterns.
+
+### Why Specialized Polecats?
+
+- **Better autonomous decisions**: Polecats understand React component patterns, Next.js conventions, and TypeScript best practices
+- **Comprehensive checklists**: Web-specific formulas create detailed, framework-aware task breakdowns
+- **Consistent quality**: Pre-configured context ensures all polecats follow the same patterns
+- **Faster onboarding**: New polecats have immediate web development expertise
+
+### Setting Up a Web App Rig
+
+When adding a new web app rig, apply the specialized polecat context:
+
+```bash
+# 1. Add the rig
+gt rig add my-app git@github.com:user/my-app.git
+
+# 2. Apply web development context
+./scripts/setup-web-app-rig.sh my-app
+
+# 3. Create your crew workspace (optional)
+gt crew add brian --rig my-app
+```
+
+The setup script:
+- Copies comprehensive web development context to `polecats/.context/`
+- Updates refinery context with web app patterns
+- Creates symlinks to web app templates
+- Configures .gitignore
+
+### Web Development Formulas
+
+Use these formulas to create web-specific work for polecats:
+
+#### web-feature
+
+Full-stack feature (React + API + Database):
+
+```bash
+bd cook web-feature feature_name="user-authentication"
+```
+
+Creates a comprehensive checklist covering:
+- Frontend components (Server/Client Component decisions)
+- Backend API routes or Server Actions
+- Database schema changes and migrations
+- Testing (unit, integration, E2E)
+- Security validation
+- Code quality checks
+
+#### web-component
+
+React component implementation:
+
+```bash
+bd cook web-component component_name="UserProfile"
+```
+
+Creates a checklist for:
+- Server vs Client Component decision
+- TypeScript props interface
+- Styling with Tailwind CSS
+- Accessibility (ARIA, keyboard navigation)
+- Component testing
+- Responsive design
+
+#### web-api
+
+API endpoint implementation:
+
+```bash
+bd cook web-api endpoint_name="users"
+```
+
+Creates a checklist for:
+- HTTP method and route design
+- Request/response validation (Zod)
+- Prisma database queries
+- Error handling and status codes
+- Security (authentication, authorization, input validation)
+- Integration testing
+
+### Web Development Technology Stack
+
+Polecats specialized for web development have knowledge of:
+
+**Frontend:**
+- React 18+ (Server Components, Client Components, Suspense)
+- Next.js 14+ (App Router, Server Actions, Route Handlers)
+- TypeScript (strict mode, type-safe patterns)
+- Tailwind CSS (utility-first styling)
+
+**Backend:**
+- Next.js API Routes
+- Server Actions (form handling)
+- Node.js
+
+**Database:**
+- Prisma ORM (type-safe database client)
+- PostgreSQL (primary database)
+- Redis (caching)
+
+**Testing:**
+- Vitest (unit tests)
+- React Testing Library (component tests)
+- Playwright (E2E tests)
+
+**Tooling:**
+- pnpm (package management)
+- ESLint (linting)
+- Prettier (formatting)
+- Husky (git hooks)
+
+### Polecat Context Reference
+
+The complete web development context is in:
+**`templates/polecat-contexts/WEB_DEVELOPMENT.md`**
+
+This ~800 line reference document covers:
+- React Server vs Client Component patterns
+- Next.js App Router file conventions
+- TypeScript typing patterns
+- Prisma database query patterns
+- API endpoint design patterns
+- Testing strategies
+- Common troubleshooting
+- Best practices and anti-patterns
+
+### Example Workflow
+
+```bash
+# 1. Setup web app rig
+./scripts/setup-web-app-rig.sh meal-agent
+
+# 2. Create feature work
+cd meal-agent/refinery/rig  # or crew/brian/rig
+bd cook web-feature feature_name="recipe-import"
+
+# 3. Assign to polecat
+gt sling <bead-id> meal-agent
+
+# 4. Polecat automatically receives web development context
+# 5. Polecat implements feature following React/Next.js best practices
+# 6. Polecat runs tests, linting, type checking
+# 7. Polecat pushes to branch, refinery merges
+```
+
+Polecats spawned with work assignments automatically have access to:
+- Comprehensive web development patterns
+- Project structure awareness
+- Technology stack reference
+- Common troubleshooting solutions
+- Quality standards and checklists
+
 ## Available Formulas
 
 Formulas automate common workflows by creating structured issue checklists.

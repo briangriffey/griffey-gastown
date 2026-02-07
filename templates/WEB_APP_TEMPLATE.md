@@ -329,6 +329,86 @@ docker-compose ps          # Check if redis is running
 docker-compose logs redis  # Check logs
 ```
 
+## Working with Web Development Polecats
+
+This rig can use specialized polecats for web development tasks. Polecats are autonomous workers with deep knowledge of React, Next.js, TypeScript, and modern web patterns.
+
+### Setup
+
+Apply web development context to this rig:
+
+```bash
+# From HQ root
+~/gt/scripts/setup-web-app-rig.sh my-app
+```
+
+This gives polecats access to:
+- Comprehensive web development patterns (~800 lines)
+- React Server vs Client Component guidance
+- Next.js App Router conventions
+- TypeScript typing patterns
+- Prisma database patterns
+- Testing strategies
+- Troubleshooting solutions
+
+### Common Workflows
+
+**Implement a feature:**
+```bash
+# Create feature issue with comprehensive checklist
+bd cook web-feature feature_name="recipe-import"
+
+# Assign to polecat
+gt sling <issue-id> my-app
+```
+
+The polecat will:
+- Understand the monorepo structure
+- Make Server/Client Component decisions
+- Implement with TypeScript types
+- Write tests
+- Run quality checks
+- Push to branch for refinery merge
+
+**Create a component:**
+```bash
+bd cook web-component component_name="RecipeCard"
+gt sling <issue-id> my-app
+```
+
+The polecat will:
+- Determine Server vs Client Component
+- Define TypeScript props interface
+- Style with Tailwind CSS
+- Handle accessibility
+- Write component tests
+
+**Build an API:**
+```bash
+bd cook web-api endpoint_name="recipes"
+gt sling <issue-id> my-app
+```
+
+The polecat will:
+- Create route handler in `app/api/`
+- Add request validation (Zod)
+- Implement Prisma queries
+- Handle errors properly
+- Write integration tests
+
+### What Polecats Know
+
+Polecats automatically have context about:
+- Your monorepo structure (apps/, packages/)
+- Next.js App Router patterns
+- Server Components vs Client Components
+- Prisma database patterns
+- Testing approaches (Vitest, React Testing Library)
+- Code quality standards (ESLint, TypeScript strict mode)
+- Common troubleshooting solutions
+
+See `~/gt/templates/polecat-contexts/WEB_DEVELOPMENT.md` for complete reference.
+
 ## Additional Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
@@ -336,3 +416,4 @@ docker-compose logs redis  # Check logs
 - [pnpm Workspaces](https://pnpm.io/workspaces)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [TypeScript](https://www.typescriptlang.org/docs)
+- [Gas Town Polecat Context](../polecat-contexts/WEB_DEVELOPMENT.md)
