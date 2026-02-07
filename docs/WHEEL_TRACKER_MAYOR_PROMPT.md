@@ -6,11 +6,11 @@
 
 ## Implementation Request
 
-Create parallelized work for implementing the Wheel Tracker application following the PRD at `wheel-tracker/docs/PRODUCT_PLAN.md`.
+Create parallelized work for implementing the Wheel Tracker application following the PRD at `wheeltracker/docs/PRODUCT_PLAN.md`.
 
 **Constraints:**
 - Maximum 2 polecats working simultaneously
-- Assign all work to: `wheel-tracker` rig
+- Assign all work to: `wheeltracker` rig
 - Create convoy: "Wheel Tracker v1.0"
 - Use web development formulas where applicable
 
@@ -738,7 +738,7 @@ Tasks:
   - Number of trades
 - [ ] Add export button to dashboard:
   - Trigger download
-  - Filename: wheel-tracker-pl-YYYY-MM-DD.csv
+  - Filename: wheeltracker-pl-YYYY-MM-DD.csv
   - Show success message
 - [ ] Add date range filter for export:
   - Export only trades in selected range
@@ -1372,15 +1372,15 @@ After creating all beads with dependencies, assign to polecats:
 
 ```bash
 # Phase 0 (sequential - one polecat)
-gt sling <bead-1> wheel-tracker
+gt sling <bead-1> wheeltracker
 # Wait for completion
-gt sling <bead-2> wheel-tracker
+gt sling <bead-2> wheeltracker
 # Wait for completion
-gt sling <bead-3> wheel-tracker
+gt sling <bead-3> wheeltracker
 
 # Phase 1 (parallel - two polecats)
-gt sling <bead-4> wheel-tracker   # Backend polecat
-gt sling <bead-5> wheel-tracker   # Frontend polecat
+gt sling <bead-4> wheeltracker   # Backend polecat
+gt sling <bead-5> wheeltracker   # Frontend polecat
 
 # Continue pattern for remaining phases...
 ```
@@ -1407,7 +1407,7 @@ Throughout this implementation:
 
 ## Reference Documents
 
-- **PRD**: `wheel-tracker/docs/PRODUCT_PLAN.md`
+- **PRD**: `wheeltracker/docs/PRODUCT_PLAN.md`
 - **Mayor Prompting Guide**: `docs/MAYOR_PROMPTING_GUIDE.md`
 - **Web Development Context**: `templates/polecat-contexts/WEB_DEVELOPMENT.md`
 
