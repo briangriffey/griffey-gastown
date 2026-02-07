@@ -1,0 +1,187 @@
+name = "web-app-setup"
+description = "Initialize a new web app rig with standard structure"
+
+[[steps]]
+type = "create-issue"
+template = """
+title: "Setup monorepo structure"
+description: |
+  Initialize the foundational monorepo structure for the web app.
+
+  Tasks:
+  - [ ] Initialize pnpm workspace with `pnpm-workspace.yaml`
+  - [ ] Create apps/ directory for applications
+  - [ ] Create packages/ directory for shared code
+  - [ ] Setup root tsconfig.json with path aliases
+  - [ ] Add .mise.toml for Node.js and pnpm version management
+  - [ ] Configure turbo.json for build orchestration
+  - [ ] Add root package.json with workspace scripts
+  - [ ] Setup .gitignore for Node.js/Next.js projects
+
+  Expected structure:
+  ```
+  my-app/
+  ├── apps/
+  ├── packages/
+  ├── pnpm-workspace.yaml
+  ├── tsconfig.json
+  ├── .mise.toml
+  ├── turbo.json
+  └── package.json
+  ```
+"""
+
+[[steps]]
+type = "create-issue"
+template = """
+title: "Setup Next.js app in apps/web"
+description: |
+  Create the main Next.js web application.
+
+  Tasks:
+  - [ ] Initialize Next.js 14+ with App Router
+  - [ ] Configure TypeScript with strict mode
+  - [ ] Setup ESLint with Next.js rules
+  - [ ] Configure Tailwind CSS for styling
+  - [ ] Setup next.config.mjs with proper settings
+  - [ ] Add API health check endpoint at /api/health
+  - [ ] Configure environment variable validation
+  - [ ] Add basic app layout and homepage
+  - [ ] Setup proper TypeScript path aliases (@/components, @/lib)
+
+  Health check should return:
+  ```json
+  {
+    "status": "ok",
+    "timestamp": "ISO-8601",
+    "dependencies": {
+      "database": "connected|disconnected",
+      "redis": "connected|disconnected"
+    }
+  }
+  ```
+"""
+
+[[steps]]
+type = "create-issue"
+template = """
+title: "Setup database package with Prisma"
+description: |
+  Create a shared database package using Prisma ORM.
+
+  Tasks:
+  - [ ] Create packages/database directory
+  - [ ] Initialize package.json for the database package
+  - [ ] Install Prisma and @prisma/client
+  - [ ] Initialize Prisma with PostgreSQL provider
+  - [ ] Create PrismaClient singleton export in src/index.ts
+  - [ ] Setup migration scripts in package.json
+  - [ ] Add seed script for development data
+  - [ ] Configure Prisma schema with initial models
+  - [ ] Add TypeScript types export
+
+  PrismaClient pattern (prevents connection pool exhaustion):
+  ```typescript
+  import { PrismaClient } from '@prisma/client'
+
+  const globalForPrisma = globalThis as unknown as {
+    prisma: PrismaClient | undefined
+  }
+
+  export const prisma = globalForPrisma.prisma ?? new PrismaClient()
+
+  if (process.env.NODE_ENV !== 'production') {
+    globalForPrisma.prisma = prisma
+  }
+  ```
+
+  Scripts needed:
+  - db:generate - Generate Prisma client
+  - db:migrate - Run migrations
+  - db:push - Push schema to database
+  - db:studio - Open Prisma Studio
+  - db:seed - Seed development data
+"""
+
+[[steps]]
+type = "create-issue"
+template = """
+title: "Setup Docker environment"
+description: |
+  Configure Docker Compose for local development services.
+
+  Tasks:
+  - [ ] Copy docker-compose template from ~/gt/templates/web-app/
+  - [ ] Configure PostgreSQL 16 service with health checks
+  - [ ] Configure Redis 7 service with persistence
+  - [ ] Add proper volume mounts for data persistence
+  - [ ] Configure health checks for all services
+  - [ ] Create .env.example from template
+  - [ ] Document environment variable requirements
+  - [ ] Add docker:up, docker:down scripts to package.json
+  - [ ] Test service startup and health checks
+
+  Services:
+  - PostgreSQL: localhost:5432
+  - Redis: localhost:6379
+
+  Verify with:
+  ```bash
+  docker-compose up -d
+  docker-compose ps
+  docker-compose logs postgres
+  docker-compose logs redis
+  ```
+"""
+
+[[steps]]
+type = "create-issue"
+template = """
+title: "Setup shared packages"
+description: |
+  Create shared utility and configuration packages.
+
+  Tasks:
+  - [ ] Create packages/shared for common utilities
+  - [ ] Add TypeScript types that are used across apps
+  - [ ] Create packages/config for shared configurations
+  - [ ] Add shared ESLint config
+  - [ ] Add shared TypeScript config
+  - [ ] Export utilities and types properly
+  - [ ] Document package usage in README
+
+  packages/shared should export:
+  - Common TypeScript types
+  - Utility functions (formatters, validators, etc.)
+  - Shared constants
+
+  packages/config should export:
+  - tsconfig.json bases
+  - ESLint configurations
+  - Prettier configurations
+"""
+
+[[steps]]
+type = "create-issue"
+template = """
+title: "Configure development tooling"
+description: |
+  Setup development tools for code quality and consistency.
+
+  Tasks:
+  - [ ] Configure Prettier for code formatting
+  - [ ] Add .prettierrc with project standards
+  - [ ] Setup Husky for Git hooks
+  - [ ] Configure lint-staged for pre-commit checks
+  - [ ] Add pre-commit hook to run linting and formatting
+  - [ ] Configure VS Code settings (optional .vscode/)
+  - [ ] Add format and lint scripts to package.json
+  - [ ] Document code style guidelines
+
+  Pre-commit hook should:
+  - Run ESLint on staged TypeScript files
+  - Run Prettier on staged files
+  - Run type checking
+  - Prevent commit if checks fail
+"""
+"""

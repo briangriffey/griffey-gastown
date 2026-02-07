@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "rigs": {
+    "meal-agent": {
+      "git_url": "git@github.com:briangriffey/meal-planner-agent.git",
+      "added_at": "2026-02-06T20:21:23.241128-06:00",
+      "beads": {
+        "repo": "",
+        "prefix": "ma"
+      }
+    }
+  }
+}
