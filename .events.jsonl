@@ -1,1 +1,3 @@
 {"ts":"2026-02-07T17:42:29Z","source":"gt","type":"session_death","actor":"gt-boot","payload":{"agent":"unknown","caller":"gt doctor","reason":"orphan cleanup","session":"gt-boot"},"visibility":"feed"}
+{"ts":"2026-02-10T02:45:18Z","source":"gt","type":"session_start","actor":"deacon","payload":{"actor_pid":"deacon-27515","cwd":"/Users/briangriffey/Code/griffey-gastown/deacon","role":"deacon","session_id":"9fd1bf93-bc7f-4806-9097-41bc41029c97","topic":"patrol"},"visibility":"feed"}
+{"ts":"2026-02-10T02:45:20Z","source":"gt","type":"nudge","actor":"deacon","payload":{"reason":"[from deacon] session-started","rig":"","target":"deacon"},"visibility":"feed"}
