@@ -52,3 +52,11 @@
 # Note: .beads/ has its own .gitignore that handles SQLite files
 # and keeps issues.jsonl, metadata.json, config file as source of truth
 deacon
+daemon
+wheeltracker/refinery/rig
+wheeltracker/witness/rig
+wheeltracker/crew/**
+personalsite/refinery/rig
+personalsite/witness/rig
+personalsite/crew/**
+logs

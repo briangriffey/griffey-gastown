@@ -1,0 +1,11 @@
+{
+  "type": "rig",
+  "version": 1,
+  "name": "personalsite",
+  "git_url": "git@github.com:briangriffey/personal-site.git",
+  "default_branch": "main",
+  "created_at": "2026-02-09T20:49:39.031314-06:00",
+  "beads": {
+    "prefix": "pe"
+  }
+}

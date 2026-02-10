@@ -1,4 +1,21 @@
 {
   "version": 1,
-  "rigs": {}
+  "rigs": {
+    "personalsite": {
+      "git_url": "git@github.com:briangriffey/personal-site.git",
+      "added_at": "2026-02-09T20:49:48.419044-06:00",
+      "beads": {
+        "repo": "",
+        "prefix": "pe"
+      }
+    },
+    "wheeltracker": {
+      "git_url": "git@github.com:briangriffey/wheel-tracker.git",
+      "added_at": "2026-02-09T20:49:19.304803-06:00",
+      "beads": {
+        "repo": "",
+        "prefix": "wh"
+      }
+    }
+  }
 }
